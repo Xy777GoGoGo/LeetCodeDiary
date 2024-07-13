@@ -1,0 +1,37 @@
+流程演示：
+1.lo =0 hi =8
+mid = 4
+sort(nums,aux,0,4)	=>	2.lo=0 hi=4
+												mid = 2
+												sort(nums,aux,0,2)	=>4.lo=0 hi =2
+																							mid =1
+																							sort(nums,aux,0,1)     
+																							sort(nums,aux,2,2)  
+																							if (nums[2] >= nums[1])
+																									return
+																							merge(nums,aux,0,1,2)
+												sort(nums,aux,3,4)	=>5.lo=3 hi=4
+																							mid =3
+																							sort(nums,aux,3,3)       只有一个元素无需排序和归并
+																							sort(nums,aux,4,4)
+																							if (nums[4] >= nums[3])
+																							return                 已经归并好了，直接返回
+																							merge(nums,aux,3,3,4)
+												if(nums[3] >= nums[2])
+														return;
+												merge(nums,aux,0,2,4)
+				
+sort(nums,aux,5,8)	=>	3.lo=5 hi=8	
+										mid = 6
+										sort(nums,aux,5,6)
+
+										sort(nums,aux,7,8)
+
+										if(nums[7] >= nums[6])	
+											return;
+										merge(nums,aux,5,6,8)
+
+
+if(nums[5] >=nums[4])  
+		return;
+merge(nums,aux,0,4,8);
