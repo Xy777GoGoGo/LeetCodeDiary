@@ -40,7 +40,9 @@ void main(){
 	//3.初始化：
 	//注意到当j = 0, value都为0   当 i = 0， 得看j的容量大不大
 	//4.递推顺序
-	int ans[6][6] = {0};
+
+	
+ int ans[6][6] = {0};
 //先初始化
 	for(int j = 0; j < 6; j++){
 			if(j >= roomcost[0])
@@ -65,5 +67,20 @@ void main(){
 	 printf("\n");
  }
 
+	//下面是一维数组实现
+	//1.dp[i]定义容量为j的背包，所背的物品价值可以最大为dp[j]
+	//2.递推公式：dp[i] = max(dp[i], dp[i - roomcost[j]] + value[j])
+	//3.初始化dp[0] = 0,其他全部初始化为0,
+	//4.遍历顺序
+	/*
+	int ans[6] = {0};
+	for(int i = 0; i < 6; i++){//遍历物品
+		for(int j = 5; j >= roomcost[i]; j --){//遍历背包容量
+			ans[j] = max(ans[j], ans[j - roomcost[i]] + value[i]);
+			printf("%d	", ans[j]);
+		}
+		printf("\n");
+	}
+	*/
 }                                                                                             
 
