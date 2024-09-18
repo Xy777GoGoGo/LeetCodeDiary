@@ -52,4 +52,25 @@ int climbStairs(int n) {
     }
     return r;
 }
-
+int climbStairs(int n) {
+//完全背包
+//物品1 ，2   背包 n
+//1.dp[i] 代表到到阶梯i有这么多种（排列数）
+//2.dp[i] = sum(dp[i - nums[i]])
+//3.初始化dp[0] =1
+//4.递推顺序：背包在外面，物品在里面，里面循环是顺序
+    int dp[n + 1];
+    memset(dp, 0, sizeof(int) * (n + 1));
+    dp[0] = 1;
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= 2; j++ ){
+            if(i >= j)
+                dp[i] = dp[i] + dp[i - j];
+        }
+    }
+    // n: 0 1 2 3 4
+    //dp: 1 0 0 0 0
+    //  : 1 1 0 0 0
+    //  : 1 1 2 
+    return dp[n];
+}
